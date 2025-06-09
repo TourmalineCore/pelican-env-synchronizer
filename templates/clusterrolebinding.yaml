@@ -9,7 +9,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   # If we use rights lower than cluster-admin, the services won't be deployed.
   kind: ClusterRole
-  name: admin
+  name: cluster-admin
 subjects:
 - kind: ServiceAccount
   name: {{ .Release.Name }}
