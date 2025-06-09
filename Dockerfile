@@ -1,5 +1,7 @@
 FROM alpine:3.22.0
 
+COPY synchronizer.py .
+
 # install curl
 RUN apk add curl
 
@@ -37,6 +39,8 @@ RUN curl -Lo kubectl https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl &
     chmod +x kubectl && \
     mv kubectl /usr/local/bin
 
+# install python
+RUN apk add python3
+
 # Clone local env and apply helmfile
-CMD git clone https://github.com/TourmalineCore/pelican-local-env.git && \
-    helmfile cache cleanup && helmfile --environment local --namespace local -f pelican-local-env/deploy/helmfile.yaml apply
+CMD ["python", "synchronizer.py"]
