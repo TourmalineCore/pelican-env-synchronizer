@@ -1,5 +1,5 @@
-import os
+import subprocess
 
-os.system("git clone https://github.com/TourmalineCore/pelican-local-env.git")
+subprocess.run("git clone https://github.com/TourmalineCore/pelican-local-env.git", shell=True, check=True)
 
-os.system("helmfile cache cleanup && helmfile --environment local --namespace local -f pelican-local-env/deploy/helmfile.yaml apply")
+subprocess.run("helmfile cache cleanup && helmfile --environment local --namespace local -f pelican-local-env/deploy/helmfile.yaml apply", shell=True, check=True)
