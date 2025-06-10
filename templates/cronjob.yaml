@@ -23,8 +23,6 @@ spec:
               {{- else }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               {{- end }}
-              securityContext:
-                privileged: true
               resources:
                 limits:
                   cpu: {{ .Values.resources.limits.cpu }}
@@ -32,4 +30,3 @@ spec:
                   cpu: {{ .Values.resources.requests.cpu }}
                   memory: {{ .Values.resources.requests.memory }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
-          hostNetwork: true
