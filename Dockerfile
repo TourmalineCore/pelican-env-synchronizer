@@ -7,6 +7,7 @@ RUN apk add curl
 
 # install kind https://kind.sigs.k8s.io/docs/user/quick-start/#installing-from-release-binaries
 # curl -Lo - follow redirects and write to file
+# chmod +x - make file executable
 RUN curl -Lo /usr/local/bin/kind https://kind.sigs.k8s.io/dl/v0.23.0/kind-linux-amd64 && \
     chmod +x /usr/local/bin/kind
 
@@ -35,6 +36,7 @@ RUN curl -L https://github.com/helmfile/helmfile/releases/download/v0.164.0/helm
 
 # install kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 # curl -Lo - follow redirects and write to file
+# chmod +x - make file executable
 RUN curl -Lo kubectl https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl && \
     chmod +x kubectl && \
     mv kubectl /usr/local/bin
