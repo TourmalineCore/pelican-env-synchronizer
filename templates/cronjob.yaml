@@ -30,4 +30,7 @@ spec:
                 requests:
                   cpu: {{ .Values.resources.requests.cpu }}
                   memory: {{ .Values.resources.requests.memory }}
+              env:
+                  - name: SYNCHRONIZER_ENABLED
+                    value: "{{ .Values.extraConfigMapEnvVars.SYNCHRONIZER_ENABLED }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
