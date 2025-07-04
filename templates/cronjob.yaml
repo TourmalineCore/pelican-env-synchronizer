@@ -34,8 +34,8 @@ spec:
                   - name: SYNCHRONIZER_ENABLED
                     # k8s env variables can only be presented as string and can't be presented as bool
                     value: "{{ .Values.extraConfigMapEnvVars.SYNCHRONIZER_ENABLED }}"
-                  - name: REPOSITORY
-                    value: {{ .Values.extraConfigMapEnvVars.REPOSITORY }}
+                  - name: ENV_REPOSITORY
+                    value: {{ .Values.extraConfigMapEnvVars.ENV_REPOSITORY }}
                   - name: NAMESPACE 
                     value: {{ .Release.Namespace }}
                   - name: PATH_TO_HELMFILE
