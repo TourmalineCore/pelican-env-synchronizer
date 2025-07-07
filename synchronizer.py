@@ -2,8 +2,13 @@ import subprocess
 import os
 
 if (os.getenv("SYNCHRONIZER_ENABLED") == "True"):
-    subprocess.run("git clone https://github.com/TourmalineCore/pelican-local-env.git", shell=True, check=True)
+    # By default subprocess.run doesn't throw error if the command was failed due runtime and pod completes without any errors
+    # with check = True subprocess.run will throw error and pod will be completed with error
+    subprocess.run(['git', 'clone', f'https://github.com/{os.getenv("ENV_REPOSITORY")}.git'], check = True)
 
-    subprocess.run("helmfile cache cleanup && helmfile --environment local --namespace local -f pelican-local-env/deploy/helmfile.yaml apply", shell=True, check=True)
+    subprocess.run(['helmfile', 'cache', 'cleanup'], check = True)
+
+    subprocess.run(['helmfile', '--environment', f'{os.getenv("NAMESPACE")}', '--namespace', f'{os.getenv("NAMESPACE")}', '-f', f'{os.getenv("PATH_TO_HELMFILE")}', 'apply'], check = True)
+
 else:
     print("SYNCHRONIZER IS DISABLED")
