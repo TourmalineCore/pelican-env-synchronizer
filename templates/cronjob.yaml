@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
-  schedule: "{{ .Values.extraConfigMapEnvVars.SYNCHRONIZER_SCHEDULE }}"
+  schedule: "{{ .Values.extraConfigMapEnvVars.SCHEDULE }}"
   # How many completed jobs should be kept
   successfulJobsHistoryLimit: 1
   # We use concurrencyPolicy: Forbid to make sure that a new cronjob doesn't kill a previously started cronjob before it's completed
