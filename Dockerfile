@@ -39,7 +39,7 @@ RUN curl -L https://github.com/helmfile/helmfile/releases/download/v0.164.0/helm
 # install kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 # curl -Lo - follow redirects and write to file
 # chmod +x - make file executable
-RUN curl -Lo kubectl https://dl.k8s.io/release/0 9v1.30.0/bin/linux/$TARGETARCH/kubectl && \
+RUN curl -Lo kubectl https://dl.k8s.io/release/1.30.0/bin/linux/$TARGETARCH/kubectl && \
     chmod +x kubectl && \
     mv kubectl /usr/local/bin
 
