@@ -31,10 +31,10 @@ spec:
                 requests:
                   cpu: {{ .Values.resources.requests.cpu }}
                   memory: {{ .Values.resources.requests.memory }}
-              {{- if .Values.extraConfigMapEnvVars.configMapName }}
+              {{- if .Values.extraConfigMapEnvVars.CONFIGMAP_NAME }}
               envFrom:
               - configMapRef:
-                  name: {{ .Values.extraConfigMapEnvVars.configMapName }}
+                  name: {{ .Values.extraConfigMapEnvVars.CONFIGMAP_NAME }}
               {{- end }}
               env:
                   - name: SYNCHRONIZER_ENABLED
