@@ -49,5 +49,8 @@ RUN apk add python3
 # install yq
 RUN apk add yq
 
+# install envsubst
+RUN apk add envsubst
+
 # Clone local env and apply helmfile
 CMD ["python", "synchronizer.py"]
