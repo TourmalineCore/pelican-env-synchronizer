@@ -46,5 +46,11 @@ RUN curl -Lo kubectl https://dl.k8s.io/release/v1.30.0/bin/linux/$TARGETARCH/kub
 # install python
 RUN apk add python3
 
+# install yq
+RUN apk add yq
+
+# install envsubst
+RUN apk add envsubst
+
 # Clone local env and apply helmfile
 CMD ["python", "synchronizer.py"]
