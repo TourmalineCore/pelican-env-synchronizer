@@ -2,8 +2,8 @@ name: Trigger Local And Prod Envs
 
 on:
   push:
-    branches:
-      - master
+    # branches:
+    #   - master
 
 jobs:
   # this is needed to wait for the new docker image to be build and published to the registry
@@ -16,7 +16,7 @@ jobs:
 
   trigger_local_env:
     needs: push_to_registry
-    uses: TourmalineCore/pelican-github-workflows/.github/workflows/sync-env.yml@master
+    uses: TourmalineCore/pelican-github-workflows/.github/workflows/sync-env.yml@feature/fail-sync-on-error
     with:
       # pelican-env is used to define which env will be synced
       pelican-env: pelican-local-env
